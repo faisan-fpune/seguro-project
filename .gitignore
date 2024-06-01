@@ -28,7 +28,6 @@ log.txt
 /tmp
 /out-tsc
 /bazel-out
-
 # Node
 /node_modules
 npm-debug.log
@@ -44,7 +43,9 @@ yarn-error.log
 *.sublime-project
 *.sublime-workspace
 
+
 # Visual Studio Code
+.vscode/
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
