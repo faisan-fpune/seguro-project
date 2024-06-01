@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Formulario </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="/cliente-list" >
+        volver al inicio
+      </ion-button>
+      <ion-button (click)="nuevoCliente()" routerLink="/clientes-list" >
+        <ion-icon slot="start" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Registrar Cliente</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col>
+            <ion-input  [(ngModel)]="cliente.nombre_apellido"label="Nombre" label-placement="floating" fill="outline" placeholder="Nombre">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input  [(ngModel)]="fecha" type="date" label="Fecha de Nacimeinto" label-placement="floating" fill="outline" placeholder="Fecha de Nacimeinto">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input  [(ngModel)]="cliente.bien_asegurado" label="Bien Asegurado" label-placement="floating" fill="outline" placeholder="Bien Asegurado">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input  required #monto="ngModel" pattern="^\d+$"  name="monto"  [(ngModel)]="cliente.monto_asegurado" label="Monto Asegurado"  label-placement="floating" fill="outline" placeholder="Edad">
+            </ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-button (click)="guardarCliente()" disabled="{{ monto.invalid }}" label-placement="floating" fill="outline" placeholder="Edad" expand="block" shape="round">
+             Guardar
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-col size="12" *ngIf="monto.invalid && (monto.touched)">
+
+          <ion-text color="danger" class="is-invalid" *ngIf="monto.errors?.['pattern']">Monto debe ser numerico positivo</ion-text>
+          
+        </ion-col>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

@@ -10,6 +10,18 @@ const routes: Routes = [
   {
     path: 'folder/:id',
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+  },
+  {
+    path: 'cliente-list',
+    loadChildren: () => import('./cliente-list/cliente-list.module').then( m => m.ClienteListPageModule)
+  },
+  {
+    path: 'cliente-form',
+    loadChildren: () => import('./cliente-form/cliente-form.module').then( m => m.ClienteFormPageModule)
+  },
+  {
+    path: 'cliente-form/:id',
+    loadChildren: () => import('./cliente-form/cliente-form.module').then( m => m.ClienteFormPageModule)
   }
 ];
 
